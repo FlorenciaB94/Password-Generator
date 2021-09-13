@@ -36,7 +36,7 @@ var specialSymbol = ["!", "#", "$","%", "&","(",")","*","+",",","-",".","/",",",
 //combine all different var into single array
 function randomChar(arr){
   var num = Math.floor(Math.random ()* arr.length);
-  console.log(num);
+  // console.log(num);
   return arr[num];
 }
 randomChar(lowerCase);
@@ -44,14 +44,11 @@ randomChar(upperCase);
 randomChar(numeric);
 randomChar(specialSymbol);
  
-// choices = [lowerCase, upperCase, numeric, specialSymbol].join('');
-// console.log(pw);
-// for (var c = 0; c < choices.length; c++);
 
 //generate pwd function
 function createPwd(){
   pwdLength = parseInt(prompt("How long do you need your password to be? Min 8 Max 128"));
-  console.log(pwdLength);
+  // console.log(pwdLength);
   if (!pwdLength){
     alert("Please enter password length")
     return
@@ -68,9 +65,14 @@ function createPwd(){
   // adding character to new pwd array
   var pw = "";
 pw += randomChar(lowerCase);
-  // return pw;
-  // pw += randomChar(upperCase);
-  // return pw;
+console.log(pw);
+pw += randomChar(upperCase);
+console.log(pw);
+pw+= randomChar(numeric);
+console.log(pw);
+pw+= randomChar(specialSymbol);
+console.log(pw);
+
 }
 
 createPwd();
