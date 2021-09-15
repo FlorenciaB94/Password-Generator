@@ -46,8 +46,8 @@ var OkSpecialSymbol = randomChar(specialSymbol);
  
 
 //generate pwd function
+var pw = "";
 function createPwd(){
-  var pw = "";
   pwdLength = parseInt(prompt("How long do you need your password to be? Min 8 Max 128"));
   // console.log(pwdLength);
   if (!pwdLength){
@@ -56,36 +56,27 @@ function createPwd(){
   } else if (pwdLength > 128 || pwdLength < 8) {
     pwdLength = parseInt(prompt("Try again, enter a number between 8 and 128"))
   if (pwdLength > 128 || pwdLength < 8){
-  pw += pw.concat(length);
+  pw = pw.concat(pwdLength);
   };
 };
     if (lowerCase = confirm("Do you need lowercase letters?") == true){
-      pw += pw.concat(OkLowerCase);
+      pw = pw.concat(OkLowerCase);
  console.log(pw);
     }
     if (upperCase = confirm("Do you need uppercase letters?") == true){
-      pw += pw.concat(OkLowerCase, OkUpperCase);
+      pw = pw.concat(OkUpperCase);
  console.log(pw);
     }
     if (numeric = confirm("Do you need numbers?") == true){
-      pw += pw.concat(OkLowerCase, OkUpperCase, OkNumeric);
+      pw = pw.concat(OkNumeric);
  console.log(pw);
     }
     if(specialSymbol = confirm ("Do you need special characters?") == true){
-      pw += pw.concat(OkLowerCase, OkUpperCase, OkNumeric, OkSpecialSymbol);
+      pw = pw.concat(OkSpecialSymbol);
  console.log(pw);
- return
     };
-  // adding character to new pwd array
-// pw += randomChar(lowerCase);
-// console.log(pw);
-// pw += randomChar(upperCase);
-// console.log(pw);
-// pw+= randomChar(numeric);
-// console.log(pw);
-// pw+= randomChar(specialSymbol);
-// console.log(pw);
-
+var finalPwd = String(pw);
+console.log(finalPwd);
 }
 
 createPwd();
