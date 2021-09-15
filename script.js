@@ -39,14 +39,15 @@ function randomChar(arr){
   // console.log(num);
   return arr[num];
 }
-randomChar(lowerCase);
-randomChar(upperCase);
-randomChar(numeric);
-randomChar(specialSymbol);
+var OkLowerCase = randomChar(lowerCase);
+var OkUpperCase = randomChar(upperCase);
+var OkNumeric = randomChar(numeric);
+var OkSpecialSymbol = randomChar(specialSymbol);
  
 
 //generate pwd function
 function createPwd(){
+  var pw = "";
   pwdLength = parseInt(prompt("How long do you need your password to be? Min 8 Max 128"));
   // console.log(pwdLength);
   if (!pwdLength){
@@ -55,23 +56,35 @@ function createPwd(){
   } else if (pwdLength > 128 || pwdLength < 8) {
     pwdLength = parseInt(prompt("Try again, enter a number between 8 and 128"))
   if (pwdLength > 128 || pwdLength < 8){
-  return
+  pw += pw.concat(length);
   };
 };
-    lowerCase = confirm("Do you need lowercase letters?");
-    upperCase = confirm("Do you need uppercase letters?");
-    numeric = confirm("Do you need numbers?");
-    specialSymbol = confirm ("Do you need special characters?");
+    if (lowerCase = confirm("Do you need lowercase letters?") == true){
+      pw += pw.concat(OkLowerCase);
+ console.log(pw);
+    }
+    if (upperCase = confirm("Do you need uppercase letters?") == true){
+      pw += pw.concat(OkLowerCase, OkUpperCase);
+ console.log(pw);
+    }
+    if (numeric = confirm("Do you need numbers?") == true){
+      pw += pw.concat(OkLowerCase, OkUpperCase, OkNumeric);
+ console.log(pw);
+    }
+    if(specialSymbol = confirm ("Do you need special characters?") == true){
+      pw += pw.concat(OkLowerCase, OkUpperCase, OkNumeric, OkSpecialSymbol);
+ console.log(pw);
+ return
+    };
   // adding character to new pwd array
-  var pw = "";
-pw += randomChar(lowerCase);
-console.log(pw);
-pw += randomChar(upperCase);
-console.log(pw);
-pw+= randomChar(numeric);
-console.log(pw);
-pw+= randomChar(specialSymbol);
-console.log(pw);
+// pw += randomChar(lowerCase);
+// console.log(pw);
+// pw += randomChar(upperCase);
+// console.log(pw);
+// pw+= randomChar(numeric);
+// console.log(pw);
+// pw+= randomChar(specialSymbol);
+// console.log(pw);
 
 }
 
