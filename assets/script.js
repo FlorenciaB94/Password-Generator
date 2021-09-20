@@ -24,15 +24,15 @@ generateBtn.addEventListener("click", writePassword);
 // and/or special characters?
 
 // declare password criteria variables
-var choices= "";
-var pwdLength;
+var pwdLength
 var lowerCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCase = ["A", "B", "C", "D", "E", "F", "G","H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numeric = [ 1,2,3,4,5,6,7,8,9];
 var specialSymbol = ["!", "#", "$","%", "&","(",")","*","+",",","-",".","/",",",":",";","<","=",">","?","@","^","[","\\","]","^","_","`","{","|","}","~"];
 
+
 // grabbing a random char from string
-// concat and need a for loop
+// concat and need a for loop or function for length
 //combine all different var into single array
 function randomChar(arr){
   var num = Math.floor(Math.random ()* arr.length);
@@ -48,20 +48,22 @@ var OkSpecialSymbol = randomChar(specialSymbol);
 //generate pwd function
 var pw = "";
 function createPwd(){
-  pwdLength = parseInt(prompt("How long do you need your password to be? Min 8 Max 128"));
-  // console.log(pwdLength);
+  pwdLength = Number(prompt("How long do you need your password to be? Min 8 Max 128"));
+  console.log(pwdLength);
+
   if (!pwdLength){
     alert("Please enter password length")
     return
   } else if (pwdLength > 128 || pwdLength < 8) {
-    pwdLength = parseInt(prompt("Try again, enter a number between 8 and 128"))
+    pwdLength = Number(prompt("Try again, enter a number between 8 and 128"))
   if (pwdLength > 128 || pwdLength < 8){
-  pw = pw.concat(pwdLength);
+    return
   };
-};
+  };
     if (lowerCase = confirm("Do you need lowercase letters?") == true){
       pw = pw.concat(OkLowerCase);
  console.log(pw);
+ console.log(typeof pw);
     }
     if (upperCase = confirm("Do you need uppercase letters?") == true){
       pw = pw.concat(OkUpperCase);
@@ -73,11 +75,32 @@ function createPwd(){
     }
     if(specialSymbol = confirm ("Do you need special characters?") == true){
       pw = pw.concat(OkSpecialSymbol);
- console.log(pw);
+      console.log(pw);
+      console.log(typeof pw);
     };
-var finalPwd = String(pw);
-console.log(finalPwd);
+/// I need a function to meet the length criteria
+// function totalLength(){
+  // var FinalPwd = "";
+  // for (var p= 0; p.length; p++);
+  // FinalPwd = pw.p;
+  // if (FinalPwd.length < pwdLength){
+    // console.log(FinalPwd);
+// return
 }
+/// I need a function to meet the length criteria
+// function totalLength(){
+  // var FinalPwd = "";
+  // for ( p= 0; p.length; p++);
+  // FinalPwd = pw.p;
+  // if (FinalPwd.length < pwdLength){
+    // console.log(FinalPwd);
+    /// run the code again
+    // pw = createPwd();
+    // else if the pw string is equal to pwdLength, return
+  // } else {
+    // (pw.length == pwdLength);
+    // return
 
+    // totalLength();
+  // }
 createPwd();
-
